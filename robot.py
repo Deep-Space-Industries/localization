@@ -396,8 +396,8 @@ class Wall:
 
     def draw(self):
         pygame.draw.line(screen, self.color, self.start_point, self.end_point, 3)
-        landMarkStart = LandMark(self.start_point[0], self.start_point[1], 7, GREEN)
-        landMarkEnd = LandMark(self.end_point[0], self.end_point[1], 7, GREEN)
+        landMarkStart = LandMark(self.start_point[0], self.start_point[1], 7, LIGHTBLUE)
+        landMarkEnd = LandMark(self.end_point[0], self.end_point[1], 7, LIGHTBLUE)
         landMarkStart.draw()
         landMarkEnd.draw()
 
