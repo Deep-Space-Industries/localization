@@ -396,6 +396,10 @@ class Wall:
 
     def draw(self):
         pygame.draw.line(screen, self.color, self.start_point, self.end_point, 3)
+        landMarkStart = LandMark(self.start_point[0], self.start_point[1], 7, GREEN)
+        landMarkEnd = LandMark(self.end_point[0], self.end_point[1], 7, GREEN)
+        landMarkStart.draw()
+        landMarkEnd.draw()
 
     def get_angle(self):
         if (self.end_point[0] != self.start_point[0]):
@@ -519,6 +523,16 @@ def blit_text(text, x, y, text_color = SILVER, bkg_color = None, font_size = 16)
     textRect.center = (x, y)
     screen.blit(text, textRect)
 
+class LandMark:
+    def __init__(self, x, y, radius, color):
+        self.color = color
+        self.x = x
+        self.y = y
+        self.radius = radius
+
+    def draw(self):
+        pygame.draw.circle(screen, self.color, (int(round(self.x)), int(round(self.y))), self.radius)
+
 def main():
     loopExit = True
     screen.blit(pygame.transform.scale(screen, (1000, 1000)), (0, 0))
@@ -613,6 +627,7 @@ walls.append(east_border)
 walls.append(west_border)
 walls.append(south_border)
 walls.append(north_border)
+
 e = Environment(1)
 block = Robot(520, 690, 2, 3,0, 20, walls)
 # block = Robot(220, 290 , 2 , 3 , 20 , walls)
